@@ -14,7 +14,8 @@ body {
     margin: 12.5vh auto;
     height: 75vh;
     width: 75vh;
-    min-width: 50vh;
+    min-width: 650px;
+    min-height: 650px;
     grid-template: 1fr 3fr 1fr / 1fr 1fr;;
 }
 
@@ -28,6 +29,17 @@ body {
 .title * {
     padding: 0px;
     margin: 0px;
+}
+
+.bookLibrary {
+    display: grid;
+    padding: 16px;
+    grid-template: 1fr 8fr 1fr / 1fr;
+}
+
+.selectedBookDescription {
+    margin: 16px;
+    background-color: yellow;
 }
 
 .addNewSection { 
@@ -68,7 +80,7 @@ body {
     cursor: grab;
 }
 
-.addNewSection input {
+.addNewSection input, .addNewSection textarea {
     width: 75%;
     align-self: stretch;
     border-radius: 10px;
@@ -76,8 +88,74 @@ body {
     text-align: center;
     font-size: 1rem;
     background: radial-gradient( #FFFFFF, #d6d6d6);
+    text-wrap: wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    
+}
+
+.readDiv > label {
+    width: 52px;
 
 }
+
+.addNewSection div > p {
+    width:25%;
+    margin-right: 2px;
+    border-bottom: 0px;
+}
+
+#read {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    width: 100%;
+    /* padding: 0px 2px; */
+    border-radius: 10px;
+    height: 100%;
+    width: 75%;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient( #FFFFFF, #d6d6d6);
+    outline: none;
+    border: 0px;
+}
+fieldset label {
+    min-width: 50%;
+    min-height: 50%;
+    justify-self: right;
+}
+.addNewSection div fieldset input {
+    margin: 0px;
+    appearance: none;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    background: none;
+    background-color: white;
+    justify-self: left;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    }
+
+.addNewSection div fieldset input:checked{
+    border: 2px solid red;
+}
+
+.addNewSection div fieldset input:checked::before {
+    /* appearance: none;
+    align-self: center;
+    justify-self: left;
+    width: 20px;
+    height: 20px;
+    background: none; */
+    /* background-color: red; */
+    color: red;
+    content: "✓";
+    font-size: 1rem;
+    }    
+
 
 #title {
     font-style: italic;
@@ -95,7 +173,9 @@ text-align: center;
 }
 
 dialog {
-    width: 50vh;
+    width: clamp(464px,50vh,50vh);
+    min-width: 464px;
+    min-height: 356px;
     position: relative;
     z-index: 2;
 }
@@ -111,6 +191,8 @@ dialog {
     margin: 0px auto;
     height: 75vh;
     width: 75vh;
+    min-width: 650px;
+    min-height: 650px;
     pointer-events: none;
 }
 
