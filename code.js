@@ -72,11 +72,13 @@ let moveBooksByOne = (mark) => {
         if (myLibrary.length > 8 && libraryInfo.libraryStartValue < 0) {libraryInfo.libraryStartValue += -1}
         else {libraryInfo.libraryStartValue = 0}
         libraryInfo.selectedBook = 0
+        selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text
         displayBooks()
     }
     else if (libraryInfo.selectedBook > 7) {
         if (myLibrary.length > 8 && (libraryInfo.libraryStartValue + 8) < myLibrary.length) {libraryInfo.libraryStartValue += 1}
         libraryInfo.selectedBook = 7
+        selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text
         displayBooks()
     }
     // return selectedBook
