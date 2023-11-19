@@ -14,17 +14,38 @@
             <h1>Welcome to the Library</h1>
             <p>The place for your books</p>
         </div>
-        <div class="bookLibrary"></div>
-        <div class="selectedBookDescription"></div>
+        <div class="bookLibraryContainer">
+            <div class="prevBookButton">
+                <p>/\</p>
+            </div>
+            <div class="bookLibrary">
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+            </div>
+            <div class="nextBookButton">
+                <p>\/</p>
+            </div>
+        </div>
+        <div class="selectedBookDescriptionContainer">
+            <p class="selectedBookDescription"></p>
+        </div>
         <div class="addNewSection">
+            <button class="botButton">Mark as Read</button>
             <button class="showDialog">Add a new book</button>
+            <button class="botButton"> Delete book</button>
             <dialog >
                 <div>
-                    <form action="">
+                    <form action="" method="">
                         <p><strong>Insert Book details here:</strong></p>
                         <div>
                             <label for="title">The books title:</label>
-                            <input type="text" id="title" name="title">
+                            <input type="text" id="title" name="title" required>
                         </div>
                         <div>
                             <label for="author">The books author:</label>
@@ -38,9 +59,9 @@
                         <p>Did you read the book?</p>
                             <fieldset id="read">
                                 <label for="yes">Yes</label>
-                                <input type="radio" id="yes" name="read">
+                                <input type="radio" id="yes" value="read" name="read">
                                 <label for="no">No</label>
-                                <input type="radio" id="no" name="read">
+                                <input type="radio" id="no" value="not read yet" name="read">
                             </fieldset>
                         </div>
                         <button class="submit">Submit a new Book!</button>
