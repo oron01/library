@@ -43,6 +43,20 @@ let displayBooks = () => {
     if (myLibrary[i] !== undefined && myLibrary[i] !== null) {
         books[i].textContent = myLibrary[booksI].title
     }}
+    if (libraryInfo.libraryStartValue + libraryInfo.selectedBook !== null && libraryInfo.libraryStartValue + libraryInfo.selectedBook !== undefined) {
+    selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text}
+}
+
+let markAsRead = () => {
+    if (libraryInfo.selectedBook !== null) {
+        if (myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read == "yes")
+        {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "no"} 
+        else {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "yes"}
+    }
+    myLibrary.forEach(book => {
+        book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}`;
+    });    
+    displayBooks()
 }
 
 let moveBooksByOne = (mark) => {
@@ -163,3 +177,6 @@ function addBookToLibrary() {
 }
 
 displayBooks()
+
+let markAsReadButton = document.querySelector(".markAsRead")
+markAsReadButton.addEventListener('click',markAsRead)
