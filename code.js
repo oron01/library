@@ -124,7 +124,14 @@ let getBookInfo = () => {
     let title = document.querySelector('#title').value
     let pages = document.querySelector('#pages').value
     let author = document.querySelector('#author').value
-    let read = document.querySelector('#read').value
+    let read = document.querySelector('#yes').checked
+    if (read == true) {read = "read"}
+    else if (read = document.querySelector("#no").checked) {
+        if (read == true) {read = "not read yet"}
+        else {read = "undefined"}
+    }
+    else {read = "undefined"}
+
     return {title,pages,author,read}
 }
 
