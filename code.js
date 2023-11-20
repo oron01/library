@@ -68,9 +68,10 @@ let markAsRead = () => {
 }
 
 let deleteBook = () => {
+    if (myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue] !== undefined && libraryInfo.selectedBook !== null) {
     myLibrary.splice(libraryInfo.libraryStartValue+libraryInfo.selectedBook,1)
     if (libraryInfo.libraryStartValue > 1) {libraryInfo.libraryStartValue += -1}
-    displayBooks()
+    displayBooks()}
 }
 
 let moveBooksByOne = (mark) => {
