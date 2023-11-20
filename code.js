@@ -40,6 +40,10 @@ let deleteBookButton = document.querySelector('.deleteBook')
 if (books[0].textContent !== "") {books[0].classList.add("selectedBook")}
 
 let displayBooks = () => {
+    if (libraryInfo.libraryStartValue + libraryInfo.selectedBook > myLibrary.length -1) 
+    {if (myLibrary.length > 7) {libraryInfo.libraryStartValue += -1}
+else {libraryInfo.selectedBook += -1}}
+changeInnerMark()
     for (let i = 0, booksI = libraryInfo.libraryStartValue ; i < books.length; i++, booksI++) {
     if (myLibrary[booksI] !== undefined && myLibrary[booksI] !== null) {
         books[i].textContent = myLibrary[booksI].title
@@ -76,20 +80,7 @@ let moveBooksByOne = (mark) => {
     }  
     /* innermovement */
     if (libraryInfo.selectedBook > -1 && libraryInfo.selectedBook < 8) {
-        for (i = 0, bookI = libraryInfo.libraryStartValue ; i < books.length; i++, bookI++) {
-            if (i == libraryInfo.selectedBook) {
-                books[i].classList.remove("selectedBook")
-                books[i].classList.add("selectedBook")
-                
-                if (myLibrary[bookI] !== undefined && myLibrary[bookI].text !== undefined) {
-                selectedBookDescription.textContent = myLibrary[bookI].text}
-                else {
-                selectedBookDescription.textContent = ""}
-            }
-            else {
-                books[i].classList.remove("selectedBook")
-            }
-        }
+changeInnerMark()
     }
     /* outmovement */
     else if (libraryInfo.selectedBook < 0) {
@@ -106,6 +97,23 @@ let moveBooksByOne = (mark) => {
         displayBooks()
     }
     // return selectedBook
+}
+
+let changeInnerMark = () => {
+    for (i = 0, bookI = libraryInfo.libraryStartValue ; i < books.length; i++, bookI++) {
+        if (i == libraryInfo.selectedBook) {
+            books[i].classList.remove("selectedBook")
+            books[i].classList.add("selectedBook")
+            
+            if (myLibrary[bookI] !== undefined && myLibrary[bookI].text !== undefined) {
+            selectedBookDescription.textContent = myLibrary[bookI].text}
+            else {
+            selectedBookDescription.textContent = ""}
+        }
+        else {
+            books[i].classList.remove("selectedBook")
+        }
+    }
 }
 
 // let moveBooksByOneNew = (mark) => {
