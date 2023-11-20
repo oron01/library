@@ -18,8 +18,6 @@ myLibrary.forEach(book => {
 
 
 
-// let libraryInfo.selectedBook= null
-// let libraryStartValue = 0
 let libraryInfo = {
     selectedBook: null,
     libraryStartValue : 0,
