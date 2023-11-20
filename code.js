@@ -13,7 +13,7 @@ const myLibrary = [
 ];
 
 myLibrary.forEach(book => {
-    book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}`;
+    book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}.`;
 });
 
 
@@ -51,7 +51,7 @@ changeInnerMark()
     else {books[i].textContent = ""}
 }
     if (libraryInfo.libraryStartValue + libraryInfo.selectedBook !== null && libraryInfo.libraryStartValue + libraryInfo.selectedBook !== undefined) {
-    if (myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== undefined && myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== null) {selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text}
+    if (myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== undefined && myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== null && libraryInfo.selectedBook !== null) {selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text}
     else {selectedBookDescription.textContent = ""}
 }}
 
@@ -62,7 +62,7 @@ let markAsRead = () => {
         else {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "read"}
     }
     myLibrary.forEach(book => {
-        book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}`;
+        book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}.`;
     });    
     displayBooks()
 }

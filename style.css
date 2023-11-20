@@ -1,6 +1,9 @@
 * { 
     box-sizing: border-box;
+    user-select:none;
 }
+
+p {cursor:text;}
 
 body {
     padding: 0;
@@ -80,7 +83,19 @@ body {
 
 .selectedBookDescriptionContainer {
     margin: 0px 16px;
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-image:url('./Scroll.png');
+    background-size: cover;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.selectedBookDescriptionContainer p{
+    margin: 0px 10%;
+    text-align: center;
+
 }
 
 .addNewSection { 
