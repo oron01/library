@@ -1,15 +1,15 @@
 // const myLibrary = []
 
 const myLibrary = [
-    { author: "John Smith", title: "The Mystery", pages: 45, read: "yes" },
-    { author: "Alice Johnson", title: "Hidden Secrets", pages: 72, read: "no" },
-    { author: "David Miller", title: "Echoes of Time", pages: 30, read: "yes" },
-    { author: "Emma White", title: "Whispers in the Wind", pages: 58, read: "no" },
-    { author: "James Brown", title: "Silent Shadows", pages: 81, read: "yes" },
-    { author: "Sophie Green", title: "Fading Memories", pages: 14, read: "no" },
-    { author: "Michael Gray", title: "Lost Horizon", pages: 93, read: "yes" },
-    { author: "Olivia Reed", title: "Dancing Stars", pages: 67, read: "no" },
-    { author: "Daniel Taylor", title: "Eternal Flames", pages: 49, read: "yes" }
+    { author: "John Smith", title: "The Mystery", pages: 45, read: "read" },
+    { author: "Alice Johnson", title: "Hidden Secrets", pages: 72, read: "not read yet" },
+    { author: "David Miller", title: "Echoes of Time", pages: 30, read: "read" },
+    { author: "Emma White", title: "Whispers in the Wind", pages: 58, read: "not read yet" },
+    { author: "James Brown", title: "Silent Shadows", pages: 81, read: "read" },
+    { author: "Sophie Green", title: "Fading Memories", pages: 14, read: "not read yet" },
+    { author: "Michael Gray", title: "Lost Horizon", pages: 93, read: "read" },
+    { author: "Olivia Reed", title: "Dancing Stars", pages: 67, read: "not read yet" },
+    { author: "Daniel Taylor", title: "Eternal Flames", pages: 49, read: "read" }
 ];
 
 myLibrary.forEach(book => {
@@ -53,9 +53,9 @@ let displayBooks = () => {
 
 let markAsRead = () => {
     if (libraryInfo.selectedBook !== null) {
-        if (myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read == "yes")
-        {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "no"} 
-        else {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "yes"}
+        if (myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read == "read")
+        {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "not read yet"} 
+        else {myLibrary[libraryInfo.selectedBook + libraryInfo.libraryStartValue].read = "read"}
     }
     myLibrary.forEach(book => {
         book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}`;
