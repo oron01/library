@@ -165,6 +165,7 @@ submitButton.addEventListener('click',(event) => {
     event.preventDefault()
     dialog.close()
     overlay.style.opacity = "0"
+    if (myLibrary.length < 8) {libraryInfo.selectedBook = myLibrary.length}
     displayBooks()
     resetForm()
 }
