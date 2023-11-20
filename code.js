@@ -35,17 +35,21 @@ let form = document.querySelector("form")
 let prevButton = document.querySelector(".prevBookButton")
 let nextButton = document.querySelector(".nextBookButton")
 let selectedBookDescription = document.querySelector(".selectedBookDescription")
+let deleteBookButton = document.querySelector('.deleteBook')
 
 if (books[0].textContent !== "") {books[0].classList.add("selectedBook")}
 
 let displayBooks = () => {
     for (let i = 0, booksI = libraryInfo.libraryStartValue ; i < books.length; i++, booksI++) {
-    if (myLibrary[i] !== undefined && myLibrary[i] !== null) {
+    if (myLibrary[booksI] !== undefined && myLibrary[booksI] !== null) {
         books[i].textContent = myLibrary[booksI].title
-    }}
-    if (libraryInfo.libraryStartValue + libraryInfo.selectedBook !== null && libraryInfo.libraryStartValue + libraryInfo.selectedBook !== undefined) {
-    selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text}
+    }
+    else {books[i].textContent = ""}
 }
+    if (libraryInfo.libraryStartValue + libraryInfo.selectedBook !== null && libraryInfo.libraryStartValue + libraryInfo.selectedBook !== undefined) {
+    if (myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== undefined && myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook] !== null) {selectedBookDescription.textContent = myLibrary[libraryInfo.libraryStartValue + libraryInfo.selectedBook].text}
+    else {selectedBookDescription.textContent = ""}
+}}
 
 let markAsRead = () => {
     if (libraryInfo.selectedBook !== null) {
@@ -56,6 +60,12 @@ let markAsRead = () => {
     myLibrary.forEach(book => {
         book.text = `${book.title} by ${book.author}, ${book.pages} pages long, ${book.read}`;
     });    
+    displayBooks()
+}
+
+let deleteBook = () => {
+    myLibrary.splice(libraryInfo.libraryStartValue+libraryInfo.selectedBook,1)
+    if (libraryInfo.libraryStartValue > 1) {libraryInfo.libraryStartValue += -1}
     displayBooks()
 }
 
@@ -180,3 +190,4 @@ displayBooks()
 
 let markAsReadButton = document.querySelector(".markAsRead")
 markAsReadButton.addEventListener('click',markAsRead)
+deleteBookButton.addEventListener('click',deleteBook)
