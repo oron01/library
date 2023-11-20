@@ -117,16 +117,6 @@ let changeInnerMark = () => {
     }
 }
 
-// let moveBooksByOneNew = (mark) => {
-//     if (libraryInfo.selectedBook== null) {libraryInfo.selectedBook= 0}
-//     else {    libraryInfo.selectedBook+= mark
-//     }  
-//     if (libraryInfo.selectedBook< 0) {libraryInfo.selectedBook= 7}
-//     if (libraryInfo.selectedBook>= myLibrary.length) {libraryInfo.selectedBook= 0}
-
-//     return selectedBook
-// }
-
 prevButton.addEventListener('click',moveBooksByOne.bind(null,-1))
 nextButton.addEventListener('click',moveBooksByOne.bind(null,1))
 
@@ -183,13 +173,6 @@ button.addEventListener('click',(event) => {
     overlay.style.opacity = "0.5"
     event.preventDefault()
 })
-
-// function Book(title,author,pages,read) {
-// this.title =  title;
-// this.author = author;
-// this.pages = pages;
-// this.read = read;
-// }
 
 function addBookToLibrary() {
 
