@@ -133,12 +133,13 @@ let getBookInfo = () => {
     return {title,pages,author,read}
 }
 
-function Book(title,pages,author,read) {
+class Book {
+    constructor(title,pages,author,read) {
     this.title = title;
     this.pages = pages;
     this.author = author;
     this.read = read;
-    this.text = `${this.title} by ${this.author}, ${this.pages} pages long, ${this.read}`;
+    this.text = `${this.title} by ${this.author}, ${this.pages} pages long, ${this.read}`};
 }
 
 let setNewBook = () => {
